@@ -12,11 +12,13 @@ class Game
 {
 private:
 	Board b;
-	Player p;
-	int timer = 0;
-	char kbInput = ' ';
+	Player* p = new Player;
+	int timer;
+	char kbInput;
+
 public:
-	Game();
+	Game(Player& x, Board y);
+
 	void render();
 	void input();
 	bool update();

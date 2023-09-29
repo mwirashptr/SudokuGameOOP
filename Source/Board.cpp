@@ -1,5 +1,9 @@
 #include <Board.h>
 
+Board::Board()
+{
+}
+
 void Board::setCell(int x, int y, char input)
 {
 	boardArray[x][y] = input;
@@ -36,7 +40,6 @@ void Board::setBoard(std::string input)
 				input.erase(0, 1);
 			}
 		}
-		random();
 	}
 }
 

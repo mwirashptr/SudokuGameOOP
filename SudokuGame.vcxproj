@@ -20,14 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Board.h" />
+    <ClInclude Include="Header\Filestream.h" />
     <ClInclude Include="Header\Game.h" />
     <ClInclude Include="Header\Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Board.cpp" />
+    <ClCompile Include="Source\Filestream.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Board.txt" />
+    <Text Include="Player.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -4,11 +4,17 @@
     <ClInclude Include="Header\Board.h" />
     <ClInclude Include="Header\Game.h" />
     <ClInclude Include="Header\Player.h" />
+    <ClInclude Include="Header\Filestream.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Board.cpp" />
     <ClCompile Include="Source\Player.cpp" />
     <ClCompile Include="Source\Game.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\Filestream.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Player.txt" />
+    <Text Include="Board.txt" />
   </ItemGroup>
 </Project>
