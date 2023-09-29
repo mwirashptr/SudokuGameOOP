@@ -1,8 +1,10 @@
 #include <Game.h>
 
-Game::Game()
+Game::Game(Player& x, Board y)
 {
+	system("CLS");
 	using namespace std;
+	timer = 0; kbInput = ' ';
 	cout << "\n";
 	cout << "========================================================================================================================\n";
 	cout << "================================      ===  ====  ==       =====    ====  ====  ==  ====  ===============================\n";
@@ -22,18 +24,16 @@ Game::Game()
 	cout << "   - Setiap kolom dan baris hanya boleh berisi angka dari 1 - 9\n";
 	cout << "   - Setiap angka pada blok 3 x 3, kolom, dan baris hanya dapat digunakan satu kali\n";
 	cout << "   - Permainan berakhir ketika seluruh kotak Sudoku terisi dengan angka dengan benar\n\n\n\n\n\n";
-	cout << "\t\t\t\t\t    ";
-
-	p = p.login();
 
 	cout << "\t\t\t\t\t      Tekan ENTER untuk memulai ";
 	if (cin.get() != '\n')
 	{
 		exit(0);
 	}
-	srand(uint32_t(time(NULL)));
 
-	b.setBoard("123456789456789123789123456231564897564897231897231564312645978645978312978312645");
+	p = &x;
+	b = y;
+
 	system("CLS");
 }
 
@@ -143,9 +143,10 @@ bool Game::update()
 	system("CLS");
 	if (b.checkWin())
 	{
+		p->setCounter();
 		std::cout << "\n\n\n\t\t\t\t\t\tSelamat kamu sudah menang";
-		std::cout << "\n\t\t\t\t\tNama	: " << p.getName();
-		std::cout << "\n\t\t\t\t\tSkor	: 1000";
+		std::cout << "\n\t\t\t\t\tNama	        : " << p->getName();
+		std::cout << "\n\t\t\t\t\tJumlah Win	: " << p->getCounter();
 		return 1;
 	}
 	return 0;
@@ -166,13 +167,15 @@ bool Game::retry()
 
 void Game::Run()
 {
+	b.random();
 	bool run = true;
-
 	while (run)
 	{
 		render();
 		input();
 		if (update())
+		{
 			run = false;
+		}
 	}
 }

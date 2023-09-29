@@ -1,18 +1,22 @@
 #pragma once
-#include <iostream>
 
+#include <iostream>
 #include <string>
 
 class Player
 {
 private:
 	std::string name;
-	int score = 0;
+	int winCounter = 0;
+
 public:
+	Player();
+
+	void setPlayer(std::string input, int winInput);
 	void setName(std::string input);
 	std::string getName();
-	void setScore(int input);
-	int getscore();
+	void setCounter();
+	int getCounter();
 
 	Player login();
 };

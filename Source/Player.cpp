@@ -1,5 +1,10 @@
 #include <Player.h>
 
+Player::Player()
+{
+	name = "";
+}
+
 void Player::setName(std::string input)
 {
 	name = input;
@@ -10,14 +15,14 @@ std::string Player::getName()
 	return name;
 }
 
-void Player::setScore(int input)
+void Player::setCounter()
 {
-	score = input;
+	winCounter++;
 }
 
-int Player::getscore()
+int Player::getCounter()
 {
-	return score;
+	return winCounter;
 }
 
 Player Player::login()
