@@ -33,7 +33,18 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Board.txt" />
+    <Text Include="Board\1.txt" />
+    <Text Include="Board\10.txt" />
+    <Text Include="Board\2.txt" />
+    <Text Include="Board\3.txt" />
+    <Text Include="Board\4.txt" />
+    <Text Include="Board\5.txt" />
+    <Text Include="Board\6.txt" />
+    <Text Include="Board\7.txt" />
+    <Text Include="Board\8.txt" />
+    <Text Include="Board\9.txt" />
     <Text Include="Player.txt" />
+    <Text Include="Player\bayam.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -126,7 +137,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\ASUS\Desktop\SudokuGame\Header;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\ASUS\Desktop\SudokuGame\Board;C:\Users\ASUS\Desktop\SudokuGame\Player;C:\Users\ASUS\Desktop\SudokuGame\Header;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -1,5 +1,5 @@
 #pragma once
-#include <Fstream>
+#include <fstream>
 
 #include "Player.h"
 #include "Board.h"
@@ -7,12 +7,15 @@
 class Filestream
 {
 private:
-	std::array<Player, 100> pQueue;
-	std::array<Board, 100> bQueue;
-
-	void setPlayerArray();
-	void setBoardArray();
+	Player player;
+	Board board;
 public:
-	void getPlayerArray();
-	void getBoardArray();
+	void Init(std::string);
+	Player getPlayerData(std::string text);
+	Board getBoardData(std::string text);
+
+	Player* getPlayer();
+	Board* getBoard();
+
+	void setPlayer(std::string);
 };

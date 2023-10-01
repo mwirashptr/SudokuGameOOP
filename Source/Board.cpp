@@ -1,9 +1,5 @@
 #include <Board.h>
 
-Board::Board()
-{
-}
-
 void Board::setCell(int x, int y, char input)
 {
 	boardArray[x][y] = input;
@@ -12,20 +8,6 @@ void Board::setCell(int x, int y, char input)
 char Board::getCell(int x, int y)
 {
 	return boardArray[x][y];
-}
-
-void Board::random()
-{
-	for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
-		{
-			if (rand() % 69 == 0)
-			{
-				setCell(i, j, ' ');
-			}
-		}
-	}
 }
 
 void Board::setBoard(std::string input)
@@ -66,6 +48,11 @@ bool Board::isFull()
 	return 1;
 }
 
+std::array<std::array<char, N>, N> Board::getBoard()
+{
+	return boardArray;
+}
+
 bool Board::checkHorizontal()
 {
 	for (int i = 0; i < 9; i++)
@@ -93,12 +80,13 @@ bool Board::checkVertical()
 		int temp = 0;
 		for (int j = 0; j < 9; j++)
 		{
-			temp = temp + (getCell(i, j) - '0');
+			temp = temp + (getCell(j, i) - '0');
 		}
 
 		if (temp != 45)
 		{
 			return 0;
+			break;
 		}
 	}
 
@@ -107,22 +95,21 @@ bool Board::checkVertical()
 
 bool Board::checkRegion()
 {
-	for (int a = 0; a < 7; a = a + 3)
+	for (int a = 0; a < 3; a++)
 	{
-		int temp = 0;
-		for (int b = 0; b < 7; b = b + 3)
+		for (int b = 0; b < 3; b++)
 		{
+			int temp = 0;
 			for (int i = 0; i < 3; i++)
 			{
 				for (int j = 0; j < 3; j++)
 				{
-					temp = temp + (getCell(i + a, j + b) - '0');
+					temp = temp + (getCell(i + (3 * a), j + (3 * b)) - '0');
 				}
-
-				if (temp != 45)
-				{
-					return 0;
-				}
+			}
+			if (temp != 45)
+			{
+				return 0;
 			}
 		}
 	}
@@ -135,6 +122,7 @@ bool Board::checkWin()
 	if (isFull())
 		if (checkHorizontal())
 			if (checkVertical())
-				return 1;
+				if (checkRegion())
+					return 1;
 	return 0;
 }

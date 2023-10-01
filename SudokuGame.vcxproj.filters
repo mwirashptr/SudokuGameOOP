@@ -16,5 +16,16 @@
   <ItemGroup>
     <Text Include="Player.txt" />
     <Text Include="Board.txt" />
+    <Text Include="Player\bayam.txt" />
+    <Text Include="Board\1.txt" />
+    <Text Include="Board\2.txt" />
+    <Text Include="Board\3.txt" />
+    <Text Include="Board\4.txt" />
+    <Text Include="Board\5.txt" />
+    <Text Include="Board\6.txt" />
+    <Text Include="Board\7.txt" />
+    <Text Include="Board\8.txt" />
+    <Text Include="Board\9.txt" />
+    <Text Include="Board\10.txt" />
   </ItemGroup>
 </Project>
