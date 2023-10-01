@@ -14,8 +14,6 @@
     <ClCompile Include="Source\Filestream.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Player.txt" />
-    <Text Include="Board.txt" />
     <Text Include="Player\bayam.txt" />
     <Text Include="Board\1.txt" />
     <Text Include="Board\2.txt" />
