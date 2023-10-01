@@ -6,17 +6,13 @@
 class Player
 {
 private:
-	std::string name;
+	std::string name = "";
 	int winCounter = 0;
 
 public:
-	Player();
-
-	void setPlayer(std::string input, int winInput);
 	void setName(std::string input);
 	std::string getName();
-	void setCounter();
+	void setCounter(int input);
+	void addCounter();
 	int getCounter();
-
-	Player login();
 };

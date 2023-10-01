@@ -5,24 +5,31 @@
 #include <conio.h>
 #include <time.h>
 
-#include <Player.h>
-#include <Board.h>
+#include "Filestream.h"
+
+static std::string text = "";
 
 class Game
 {
 private:
-	Board b;
-	Player* p = new Player;
-	int timer;
-	char kbInput;
+	Filestream data;
+	std::array<std::array<char, 9>, 9> level;
+	int timer = 0;
+	char kbInput = ' ';
 
 public:
-	Game(Player& x, Board y);
+	Player* getPlayer();
+	Board* getBoard();
 
 	void render();
 	void input();
 	bool update();
 
+	void Login();
+	void Init();
+	void StartMenu();
+
 	bool retry();
 	void Run();
+	void Play();
 };
