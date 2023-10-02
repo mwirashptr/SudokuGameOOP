@@ -21,5 +21,4 @@ public:
 	bool checkHorizontal();
 	bool checkVertical();
 	bool checkRegion();
-	bool checkWin();
 };

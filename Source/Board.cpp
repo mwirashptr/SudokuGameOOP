@@ -116,13 +116,3 @@ bool Board::checkRegion()
 
 	return 1;
 }
-
-bool Board::checkWin()
-{
-	if (isFull())
-		if (checkHorizontal())
-			if (checkVertical())
-				if (checkRegion())
-					return 1;
-	return 0;
-}
