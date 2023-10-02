@@ -28,6 +28,9 @@ public:
 	void Login();
 	void Init();
 	void StartMenu();
+	bool checkWin();
+
+	int random();
 
 	bool retry();
 	void Run();

@@ -10,7 +10,7 @@ private:
 	Player player;
 	Board board;
 public:
-	void Init(std::string);
+	void Init(std::string, std::string);
 	Player getPlayerData(std::string text);
 	Board getBoardData(std::string text);
 

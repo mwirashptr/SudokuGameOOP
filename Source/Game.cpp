@@ -95,10 +95,13 @@ void Game::input()
 				}
 			}
 
-			if (level[coorY - 1][coorX - 1] != '0')
+			if (coorX != 0 && coorY != 0)
 			{
-				cout << "\n\t\t\t\tThe cell you've targetted is invalid";
-				coorX = 0; coorY = 0;
+				if (level[coorY - 1][coorX - 1] != '0')
+				{
+					cout << "\n\t\t\t\tThe cell you've targetted is invalid";
+					coorX = 0; coorY = 0;
+				}
 			}
 		}
 
@@ -132,8 +135,9 @@ bool Game::update()
 {
 	timer += 1;
 	Sleep(250);
+
 	system("CLS");
-	if (getBoard()->checkWin())
+	if (checkWin())
 	{
 		getPlayer()->addCounter();
 		data.setPlayer(text);
@@ -170,11 +174,20 @@ void Game::StartMenu()
 	cout << "   - Permainan berakhir ketika seluruh kotak Sudoku terisi dengan angka dengan benar\n\n\n\n\n\n";
 
 	cout << "\t\t\t\t\t      Tekan ENTER untuk memulai ";
-	if (cin.get() != '\n')
+
+	char cinn = ' ';
+	cinn = _getch();
+	if (cinn != 13)
 	{
 		exit(0);
 	}
 	system("CLS");
+}
+
+int Game::random()
+{
+	int random = rand() % 10 + 1;
+	return random;
 }
 
 bool Game::retry()
@@ -191,6 +204,16 @@ bool Game::retry()
 	return 0;
 }
 
+bool Game::checkWin()
+{
+	if (getBoard()->isFull())
+		if (getBoard()->checkHorizontal())
+			if (getBoard()->checkVertical())
+				if (getBoard()->checkRegion())
+					return 1;
+	return 0;
+}
+
 void Game::Login()
 {
 	std::cout << "\n\t\t\t\t\tMasukkan Nama Pemain : ";
@@ -200,7 +223,7 @@ void Game::Login()
 
 void Game::Init()
 {
-	data.Init(text);
+	data.Init(text, std::to_string(random()));
 	level = data.getBoard()->getBoard();
 }
 

@@ -1,10 +1,9 @@
 #include "Filestream.h"
 
-void Filestream::Init(std::string input)
+void Filestream::Init(std::string input, std::string input2)
 {
 	player = getPlayerData(input);
-	int random = rand() % 10 + 1;
-	board = getBoardData(std::to_string(random));
+	board = getBoardData(input2);
 }
 
 Player Filestream::getPlayerData(std::string text)
